@@ -1,0 +1,3 @@
+import { ShareCardBuilder } from "@/components/share/share-card"; import { getCreatorProfileData } from "@/lib/data";
+export const dynamic="force-dynamic";
+export default async function SharePage({searchParams}:{searchParams:Promise<{username?:string}>}){const q=await searchParams;const creator=(await getCreatorProfileData(q.username||"buildwithmia"))||(await getCreatorProfileData("buildwithmia"));if(!creator)return null;return <section className="page-section"><div className="page-heading"><span className="eyebrow">VIRAL LOOP</span><h1>Share your climb.</h1><p>Rank cards are designed to look good directly in an X post.</p></div><ShareCardBuilder creator={creator}/></section>}
