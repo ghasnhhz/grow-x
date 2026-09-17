@@ -1,0 +1,9 @@
+export type Plan = "trial" | "member" | "pro" | "max";
+export type SubscriptionStatus = "none" | "trialing" | "active" | "past_due" | "cancelled" | "expired";
+export type LeagueSlug = "10-100" | "101-500" | "501-1k" | "1k-5k";
+export type LeaderboardSort = "gain" | "growth" | "followers";
+export type LeaderboardPeriod = 1 | 7 | 30;
+export type LeaderboardRow = {id:string; username:string; displayName:string; avatarUrl:string|null; currentFollowers:number; gain:number; growthPercent:number; league:LeagueSlug; plan:Plan; productName:string|null; productUrl:string|null;};
+export type SnapshotPoint = {date:string; followers:number; change:number;};
+export type CreatorProfile = LeaderboardRow & {rank:number|null; bio:string|null; location:string|null; productDescription:string|null; history:SnapshotPoint[];};
+export type SessionPayload = {userId:string; creatorId:string; username:string;};
